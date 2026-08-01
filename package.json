@@ -28,7 +28,8 @@
 		"build": "tsup",
 		"typecheck": "tsc --noEmit",
 		"test": "tsx tests/run.ts",
-		"bench": "tsx benchmarks/sha1.ts"
+		"bench": "tsx benchmarks/sha1.ts",
+		"prepack": "pnpm build"
 	},
 	"keywords": [
 		"hash",
