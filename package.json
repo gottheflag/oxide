@@ -1,0 +1,54 @@
+{
+	"name": "@gottheflag/oxide",
+	"version": "0.1.0-beta.2",
+	"type": "module",
+	"description": "A secure, extensible hashing library.",
+	"author": {
+		"name": "GTF",
+		"email": "dev@gottheflag.sa",
+		"url": "https://gottheflag.sa"
+	},
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"import": "./dist/index.js",
+			"require": "./dist/index.cjs"
+		},
+		"./package.json": "./package.json",
+		"./*": {
+			"types": "./dist/*/index.d.ts",
+			"import": "./dist/*/index.js",
+			"require": "./dist/*/index.cjs"
+		}
+	},
+	"files": [
+		"dist"
+	],
+	"scripts": {
+		"build": "tsup",
+		"typecheck": "tsc --noEmit",
+		"test": "tsx tests/run.ts",
+		"bench": "tsx benchmarks/sha1.ts"
+	},
+	"keywords": [
+		"hash",
+		"security"
+	],
+	"publishConfig": {
+		"access": "public"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/gottheflag/oxide"
+	},
+	"bugs": {
+		"url": "https://github.com/gottheflag/oxide/issues"
+	},
+	"homepage": "https://github.com/gottheflag/oxide#readme",
+	"license": "Apache-2.0",
+	"devDependencies": {
+		"tsup": "^8.5.1",
+		"tsx": "^4.22.4",
+		"typescript": "^6.0.3"
+	}
+}
