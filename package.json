@@ -1,6 +1,6 @@
 {
 	"name": "@gottheflag/oxide",
-	"version": "0.1.0-beta.3",
+	"version": "0.1.0-beta.4",
 	"type": "module",
 	"description": "A small, composable hashing and message authentication library.",
 	"author": {

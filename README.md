@@ -277,13 +277,11 @@ const digest =
 
 ## Security
 
-SHA-1 is provided for compatibility with protocols and formats that still require it.
+SHA-1 is provided for compatibility with protocols and formats that still require it. It should not be selected for new security-sensitive designs where a modern alternative is available.
 
-SHA-1 is cryptographically broken with respect to collision resistance and should not be selected for new security-sensitive designs when a modern alternative is available.
+Custom-round hashes are non-standard and should only be used for experimentation, education, and testing.
 
-For new applications, use an algorithm appropriate for the protocol or construction being implemented.
-
-Custom-round hashes are non-standard and should not be used for normal cryptographic purposes.
+For vulnerability reporting and the project's security policy, see [SECURITY.md](SECURITY.md).
 
 ## License
 
