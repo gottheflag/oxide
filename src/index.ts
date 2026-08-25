@@ -1,6 +1,8 @@
-export { Hash } from "./hash.js";
+export {
+	Hash
+} from "./hash.js";
 
 export type {
-	DigestEncoding,
-	HashInput
+	HashInput,
+	DigestEncoding
 } from "./types/hash.js";

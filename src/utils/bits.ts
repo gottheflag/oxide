@@ -27,6 +27,7 @@
 */
 
 /**
+ * 32-bit left rotation.
  * 
  * @example
  * ```c
@@ -43,12 +44,32 @@ export function rotl32(word: number, bits: number): number {
 	/**
 	 * ensure we are using 32bit ints (1-31, for sha1).
 	 */
-	bits = bits & 31;
+	bits &= 31;
 	word >>>= 0;
 
 	return (
 		(word << bits) |
 		(word >>> (32 - bits))
+	) >>> 0;
+}
+
+/**
+ * 32-bit right rotation.
+ * 
+ * 
+ * @param word 
+ * @param bits 
+ */
+export function rotr32(
+	word: number,
+	bits: number
+): number {
+	bits &= 31;
+	word >>>= 0;
+
+	return (
+		(word >>> bits) |
+		(word << (32 - bits))
 	) >>> 0;
 }
 

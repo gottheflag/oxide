@@ -2,24 +2,64 @@
 	"name": "@gottheflag/oxide",
 	"version": "0.1.0-beta.3",
 	"type": "module",
-	"description": "A secure, extensible hashing library.",
+	"description": "A small, composable hashing and message authentication library.",
 	"author": {
 		"name": "GTF",
 		"email": "dev@gottheflag.sa",
 		"url": "https://gottheflag.sa"
 	},
+	"license": "Apache-2.0",
+	"sideEffects": false,
+	"main": "./dist/index.cjs",
+	"module": "./dist/index.js",
+	"types": "./dist/index.d.ts",
 	"exports": {
 		".": {
 			"types": "./dist/index.d.ts",
 			"import": "./dist/index.js",
 			"require": "./dist/index.cjs"
 		},
-		"./package.json": "./package.json",
-		"./*": {
-			"types": "./dist/*/index.d.ts",
-			"import": "./dist/*/index.js",
-			"require": "./dist/*/index.cjs"
-		}
+		"./hmac": {
+			"types": "./dist/hmac/index.d.ts",
+			"import": "./dist/hmac/index.js",
+			"require": "./dist/hmac/index.cjs"
+		},
+		"./sha1": {
+			"types": "./dist/sha1/index.d.ts",
+			"import": "./dist/sha1/index.js",
+			"require": "./dist/sha1/index.cjs"
+		},
+		"./sha224": {
+			"types": "./dist/sha224/index.d.ts",
+			"import": "./dist/sha224/index.js",
+			"require": "./dist/sha224/index.cjs"
+		},
+		"./sha256": {
+			"types": "./dist/sha256/index.d.ts",
+			"import": "./dist/sha256/index.js",
+			"require": "./dist/sha256/index.cjs"
+		},
+		"./sha384": {
+			"types": "./dist/sha384/index.d.ts",
+			"import": "./dist/sha384/index.js",
+			"require": "./dist/sha384/index.cjs"
+		},
+		"./sha512": {
+			"types": "./dist/sha512/index.d.ts",
+			"import": "./dist/sha512/index.js",
+			"require": "./dist/sha512/index.cjs"
+		},
+		"./sha512-224": {
+			"types": "./dist/sha512-224/index.d.ts",
+			"import": "./dist/sha512-224/index.js",
+			"require": "./dist/sha512-224/index.cjs"
+		},
+		"./sha512-256": {
+			"types": "./dist/sha512-256/index.d.ts",
+			"import": "./dist/sha512-256/index.js",
+			"require": "./dist/sha512-256/index.cjs"
+		},
+		"./package.json": "./package.json"
 	},
 	"files": [
 		"dist"
@@ -28,12 +68,16 @@
 		"build": "tsup",
 		"typecheck": "tsc --noEmit",
 		"test": "tsx tests/run.ts",
-		"bench": "tsx benchmarks/sha1.ts",
+		"test:package": "pnpm build && tsx tests/package-consumer.test.ts",
+		"test:package:types": "pnpm build && tsc -p tsconfig.package.json",
+		"test:package:packed": "node tests/package-packed.test.mjs",
+		"bench": "tsx benchmarks/index.ts",
 		"prepack": "pnpm build"
 	},
 	"keywords": [
 		"hash",
-		"security"
+		"security",
+		"checksum"
 	],
 	"publishConfig": {
 		"access": "public"
@@ -46,7 +90,7 @@
 		"url": "https://github.com/gottheflag/oxide/issues"
 	},
 	"homepage": "https://github.com/gottheflag/oxide#readme",
-	"license": "Apache-2.0",
+	"packageManager": "pnpm@11.0.9",
 	"devDependencies": {
 		"tsup": "^8.5.1",
 		"tsx": "^4.22.4",

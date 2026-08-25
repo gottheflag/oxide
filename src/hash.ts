@@ -59,3 +59,12 @@ export abstract class Hash {
 		return this.result;
 	}
 }
+
+export interface HashConstructor<
+	T extends Hash = Hash
+> {
+	new (): T;
+
+	readonly blockSize: number;
+	readonly digestSize: number;
+}
